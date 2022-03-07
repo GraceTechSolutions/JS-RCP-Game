@@ -2,6 +2,8 @@
 var user_choice;
 let bot_choice = 'r';
 
+let choices = ['r', 'p', 's']
+
 let userScore = 0
 let botScore = 0
 let winner = 'none'
@@ -59,6 +61,8 @@ const check_winner = () => {
 
 function update() {
     // console.log(user_choice);
+    let randomNumber = Math.floor(Math.random() * 3)
+    bot_choice = choices[randomNumber]
     userResScreen.innerText = user_choice
     botResScreen.innerText = bot_choice
     winner = check_winner()
