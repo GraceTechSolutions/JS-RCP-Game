@@ -12,6 +12,9 @@ let userScoreBoard = document.getElementById('user1')
 let botScoreBoard = document.getElementById('user2')
 
 let winnerBoard = document.getElementById('winner')
+let w_score = document.getElementById('w_score')
+let winner_name = document.getElementById('winner_name')
+let win_screen = document.getElementsByClassName('winning')
 
 let userResScreen = document.getElementById('resuser')
 let botResScreen = document.getElementById('resbot')
@@ -61,6 +64,7 @@ const check_winner = () => {
 
 function update() {
     // console.log(user_choice);
+    winningScore = w_score.value
     let randomNumber = Math.floor(Math.random() * 3)
     bot_choice = choices[randomNumber]
     userResScreen.innerText = user_choice
@@ -78,6 +82,12 @@ function update() {
     }
     userScoreBoard.innerText = userScore
     botScoreBoard.innerText = botScore
+
+    if (winningScore <= botScore || winningScore <= userScore) {
+        winner_name.textContent = winner
+        console.log(winner);
+        win_screen[0].style.display = 'block'
+    }
 
 }
 
